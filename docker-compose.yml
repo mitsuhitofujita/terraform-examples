@@ -9,7 +9,7 @@ services:
         - DOCKER_GID=${DOCKER_GID}
         - DOCKER_GROUP=${DOCKER_GROUP}
       context: docker/terraform
-    container_name: terraform-exsamples-terraform
+    container_name: terraform-examples-terraform
     entrypoint: ash
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
