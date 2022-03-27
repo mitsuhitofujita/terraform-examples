@@ -1,3 +1,7 @@
+.env
+docker/*/.vscode-server/*
+!docker/*/.vscode-server/.gitkeep
+
 # Local .terraform directories
 **/.terraform/*
 

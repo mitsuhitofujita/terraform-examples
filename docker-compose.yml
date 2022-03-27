@@ -1,0 +1,25 @@
+version: '3'
+services:
+  terraform:
+    build:
+      args:
+        - TERRAFORM_UID=${TERRAFORM_UID}
+        - TERRAFORM_USER=${TERRAFORM_USER}
+        - TERRAFORM_HOME=${HOME}
+        - DOCKER_GID=${DOCKER_GID}
+        - DOCKER_GROUP=${DOCKER_GROUP}
+      context: docker/terraform
+    container_name: terraform-exsamples-terraform
+    entrypoint: ash
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+    network_mode: host
+    tty: true
+    user: ${TERRAFORM_USER}:${DOCKER_GROUP}
+    volumes:
+      - ${PWD}/terraform:${PWD}/terraform
+      - ./docker/terraform/.vscode-server:${HOME}/.vscode-server
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: ${PWD}/terraform
