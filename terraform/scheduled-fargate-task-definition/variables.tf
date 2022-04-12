@@ -11,9 +11,9 @@ variable "environment" {
 }
 
 variable "feature" {
-  default = "efs" // ecs fargate service
+  default = "sftd" // scheduler fargate task definition
 }
 
-variable "worker_container_image_tag" {
+variable "command_container_image_tag" {
   default = "3.15.0"
 }
